@@ -1,0 +1,82 @@
+<!-- 
+NOTAS 
+
+HTML: Estrutura / semântica 
+CSS: Estilo / apresentação / layout / cores / fontes / responsividade
+Javascript: Comportamento / Interatividade 
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Portfólio</title>
+  <!-- Trocar o nome do CSS conforme o template -->
+  <link rel="stylesheet" href="https://www.cin.ufpe.br/~lsr/styles/style2.css">  <!-- Trocar o estilo do CSS //// AQUI MUDA O LINK PRO DEPLOY CASO DÊ ERRADO --> 
+</head>
+
+<body>
+  <!-- Descomentar caso escolha o estilo 3 -->
+  <!-- <main> -->
+  <header>
+    <img id="foto" src="images/FOTO PERFIL.jpg" alt="Foto de perfil">
+    <h1 id="nome">Letícia Staudinger</h1>
+    <p id="curso">Sistemas de Informação | CIn - UFPE</p>
+    <button id="theme-btn">Alternar Tema</button>  <!-- Botão para alternar tema -->
+    <nav>
+      <a href="#sobre">Sobre</a> |
+      <a href="#projetos">Projetos</a> |
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <div id="sobre">
+    <h2>Sobre mim</h2>
+    <p>Escreva aqui um texto sobre você.</p>
+  </div>
+
+  <div id="projetos">
+    <h2>Projetos</h2>
+    <div class="projeto">
+      <h3>Título do Projeto</h3>
+      <p>Descrição do projeto...</p>
+    </div>
+    <div class="projeto">
+      <h3>Outro Projeto</h3>
+      <p>Descrição...</p>
+    </div>
+  </div>
+
+  <!--  -->
+  <!-- Colocar o footer aqui caso escolha o tema 3 -->
+  <!--  -->
+
+  <!-- Descomentar caso escolha o estilo 3 -->
+  <!-- </main> -->
+
+  <!-- Descomentar caso escolha o estilo 3 -->
+  <!-- <aside> -->
+  <div id="contato">
+    <h2>Contato</h2>
+    <ul>
+      <li>LinkedIn: <a href="#">https://www.linkedin.com/in/leticiastaudinger/</a></li>
+      <li>GitHub: <a href="#">https://github.com/lestrb</a></li>
+      <li>E-mail: <a href="mailto:exemplo@email.com">staudinger.leticia@gmail.com</a></li>
+    </ul>
+  </div>
+  <!-- Descomentar caso escolha o estilo 3 -->
+
+  <!-- </aside> -->
+
+  <!-- Mover para o final do <main> caso escolha o tema 3 -->
+  <footer>
+    <p>&copy; 2025 - Feito por <span id="nome-footer">Letícia Staudinger</span></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="custom.js"></script>
+</body>
+
+</html>
