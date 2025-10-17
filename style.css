@@ -100,6 +100,70 @@ footer {
   color: white;
 }
 
+/* Enviar e-mail */
+#nome {
+  display: block;         /* não precisa de flex */
+  width: auto;            /* ocupa só o necessário */
+  margin: 10px auto;      /* centraliza horizontalmente */
+  background: transparent;
+  height: auto;
+  padding: 0;
+  text-align: center;
+}
+
+#nome2{
+  display: block;         /* não precisa de flex */
+  width: auto;            /* ocupa só o necessário */
+  margin: 10px auto;      /* centraliza horizontalmente */
+  background: transparent;
+  height: auto;
+  padding: 0;
+  text-align: left;
+}
+
+#email, #mensagem {
+  margin: 10px 0;
+  display: flex;
+  background: transparent;
+  width: 300px;
+  border-radius: 20px;
+  height: 40px;
+  padding: 0 10px;
+}
+
+#mensagem {
+  width: 600px;
+  resize: none; /* impede redimensionamento */
+}
+
+#contato button {
+  margin-top: 20px;
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#contato form input,
+#contato form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;       /* mesmo tamanho de fonte para inputs e textarea */
+  box-sizing: border-box;
+}
+
+#contato form textarea {
+  resize: none;          /* desativa redimensionamento */
+  height: 100px;         /* altura fixa */
+  font-family: inherit;  /* garante mesma fonte dos inputs */
+}
+
 /* DARK MODE */
 body.dark {
   background: linear-gradient(to right, #1f1f1f, #121212);

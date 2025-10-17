@@ -1,3 +1,39 @@
+<?php
+$status_msg = null; // inicializa como null
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = htmlspecialchars($_POST['nome']);
+    $email = htmlspecialchars($_POST['email']);
+    $mensagem = htmlspecialchars($_POST['mensagem']);
+
+    $to = "seuemail@dominio.com"; // substitua pelo seu e-mail
+    $subject = "Mensagem do portfólio de $nome";
+    $body = "Nome: $nome\nE-mail: $email\n\nMensagem:\n$mensagem";
+    $headers = "From: $email";
+
+    if (mail($to, $subject, $body, $headers)) {
+        $status_msg = "<p style='color:green;'>Mensagem enviada com sucesso!</p>";
+    } else {
+        $status_msg = "<p style='color:red;'>Erro ao enviar a mensagem. Tente novamente.</p>";
+    }
+
+    // Armazena a mensagem de status na sessão
+    session_start();
+    $_SESSION['status_msg'] = $status_msg;
+
+    // Redireciona para a mesma página para limpar o POST
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
+}
+
+// Se houver mensagem de status na sessão, exibe e limpa
+session_start();
+if (isset($_SESSION['status_msg'])) {
+    $status_msg = $_SESSION['status_msg'];
+    unset($_SESSION['status_msg']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,7 +41,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Portfólio</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -61,6 +97,27 @@
     </ul>
   </div>
 
+<!-- Formulário de contato -->
+<div id="contato">
+  <h2>Se preferir, fale comigo diretamente aqui!</h2>
+
+  <!-- Exibe a mensagem apenas se houver -->
+  <?php if ($status_msg !== null) echo $status_msg; ?>
+
+  <form method="POST" action="">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome2" required>
+
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea name="mensagem" id="mensagem" rows="4" required></textarea>
+
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+
   <footer>
     <p>&copy; 2025 - Feito por <span id="nome-footer">Letícia Staudinger</span></p>
   </footer>
@@ -68,5 +125,7 @@
   <script src="script.js"></script>
   <script src="custom.js"></script>
 </body>
+
+
 
 </html>
